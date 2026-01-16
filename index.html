@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday My Love ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins', sans-serif;}
+body{background:linear-gradient(135deg, #0f0f1e 0%, #1a0a2e 50%, #0d0d1a 100%);overflow-x:hidden;color:#fff;text-align:center;min-height:100vh;}
+/* Floating Hearts */
+.heart{position:fixed;bottom:-20px;font-size:20px;animation:float 6s linear infinite;opacity:0.9;}
+@keyframes float{to{transform:translateY(-120vh) rotate(360deg);}}
+/* Fireworks */
+.firework{position:fixed;width:6px;height:6px;background:white;border-radius:50%;animation:explode 1.5s ease-out forwards;box-shadow:0 0 10px currentColor;}
+@keyframes explode{from{transform:scale(1);opacity:1;}to{transform:scale(20);opacity:0;}}
+/* Header */
+header{padding:60px 20px;background:linear-gradient(180deg, rgba(255,107,107,0.1) 0%, transparent 100%);border-bottom:2px solid rgba(255,107,107,0.3);}
+header h1{font-size:3em;text-shadow:0 0 20px rgba(255,107,107,0.5);}
+header p{margin-top:15px;font-size:1.3em;color:#e0b0ff;}
+/* Cards */
+.container{display:flex;flex-wrap:wrap;justify-content:center;gap:25px;padding:30px;}
+.card{width:300px;background:linear-gradient(135deg, rgba(255,107,107,0.1) 0%, rgba(138,43,226,0.1) 100%);backdrop-filter:blur(12px);border-radius:25px;padding:20px;box-shadow:0 15px 40px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);transition:0.4s;border:1px solid rgba(255,107,107,0.3);}
+.card:hover{transform:scale(1.07) translateY(-10px);box-shadow:0 20px 50px rgba(255,107,107,0.3), inset 0 1px 0 rgba(255,255,255,0.2);}
+.card img{width:100%;border-radius:20px;}
+.card h3{margin:15px 0;color:#ff6b6b;}
+.card button{background:linear-gradient(135deg, #ff6b6b 0%, #ff4d7d 100%);border:none;padding:10px 22px;border-radius:25px;color:white;font-size:1em;cursor:pointer;transition:0.3s;box-shadow:0 4px 15px rgba(255,107,107,0.3);}
+.card button:hover{background:linear-gradient(135deg, #ff4d7d 0%, #ff2d5f 100%);transform:translateY(-2px);box-shadow:0 6px 20px rgba(255,107,107,0.5);}
+.card button:active{transform:translateY(0);}
+/* Cake */
+.cake{width:220px;margin:50px auto;position:relative;}
+.layer{height:60px;background:linear-gradient(135deg, #8b5cf6 0%, #d946ef 100%);border-radius:12px;margin-bottom:6px;box-shadow:0 4px 15px rgba(139,92,246,0.3);}
+.candle{width:12px;height:45px;background:#e0e0e0;position:absolute;top:-45px;left:50%;transform:translateX(-50%);box-shadow:0 0 10px rgba(255,255,255,0.2);}
+.flame{width:18px;height:18px;background:linear-gradient(to top, #ff6b00, #ffaa00);border-radius:50%;position:absolute;top:-18px;left:50%;transform:translateX(-50%);animation:flicker 0.3s infinite alternate;box-shadow:0 0 15px #ff6b00;}
+@keyframes flicker{to{transform:translateX(-50%) scale(1.3);}}
+.blowText{font-size:1.1em;margin-top:10px;color:#c4b5fd;}
+#finalMessage{display:none;font-size:1.6em;margin-top:20px;color:#fbbf24;text-shadow:0 0 20px rgba(251,191,36,0.5);}
+/* Typing Box */
+#typingBox{display:none;max-width:900px;margin:60px auto;background:linear-gradient(135deg, rgba(139,92,246,0.15) 0%, rgba(168,85,247,0.15) 100%);padding:45px;border-radius:40px;font-size:1.35em;line-height:1.9;border:1px solid rgba(139,92,246,0.3);box-shadow:0 15px 40px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);}
+.cursor{animation:blink 1s infinite;color:#a78bfa;}
+@keyframes blink{0%,50%{opacity:1;}51%,100%{opacity:0;}}
+#choices button{margin:10px;padding:12px 28px;border-radius:30px;border:none;background:linear-gradient(135deg, #a855f7 0%, #ec4899 100%);color:white;font-size:1em;cursor:pointer;transition:0.3s;box-shadow:0 4px 15px rgba(168,85,247,0.3);}
+#choices button:hover{transform:scale(1.08);box-shadow:0 6px 20px rgba(168,85,247,0.5);}
+#choices button:active{transform:scale(0.98);}
+#scrollHint{display:none;margin-top:40px;font-size:0.9em;opacity:0.8;}
+/* Love Letters */
+.letter{max-width:700px;margin:40px auto;background:rgba(139,92,246,0.15);border-radius:30px;padding:30px;display:none;animation:fade 1.5s forwards;border:1px solid rgba(168,85,247,0.3);}
+@keyframes fade{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:none;}}
+.letter p{font-size:1.2em;line-height:1.7;}
+/* Whisper Mobile Mode */
+@media (max-width: 600px){
+    #typingBox{font-size:1.15em;letter-spacing:0.5px;padding:30px;}
+    #typingBox::before{
+        content:"(come closer… read slowly)";
+        display:block;font-size:0.75em;opacity:0.7;margin-bottom:15px;font-style:italic;
+    }
+    header h1{font-size:2em;}
+    header p{font-size:1.1em;}
+}
+footer{margin:60px 0;font-size:1.2em;color:#9ca3af;}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>🎉 Happy Birthday My Love ❤️</h1>
+    <p>Today isn’t just your birthday… it’s the day my favorite human was born 💕</p>
+</header>
+
+<!-- Romantic Cards -->
+<div class="container">
+    <div class="card">
+        <img src="Images/Card1.gif">
+        <h3>My Safe Place</h3>
+        <button onclick="showAlert('You are my sunshine ☀️')">Open 💌</button>
+    </div>
+    <div class="card">
+        <img src="Images/Card2.gif">
+        <h3>Just Us</h3>
+        <button onclick="showAlert('I Love You ❤️')">Read 💖</button>
+    </div>
+    <div class="card">
+        <img src="Images/Card3.gif">
+        <h3>Little Secret 👀</h3>
+        <button onclick="showAlert('You are my everything 💕')">Unlock 🔥</button>
+    </div>
+</div>
+
+<!-- Cake Section -->
+<section id="cakeSection">
+    <h2>🎂 Make a Wish & Blow the Candle 🎂</h2>
+    <div class="cake">
+        <div class="candle"><div class="flame" id="flame"></div></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+    </div>
+    <button onclick="blow()">Blow Candle 💨</button>
+    <p class="blowText">Close your eyes, make a wish...</p>
+    <div id="finalMessage">✨ Your wish is safe with me… forever ❤️✨</div>
+</section>
+
+<!-- Secret Roleplay Section -->
+<section style="margin:90px 20px;">
+    <h2 style="color:#f472b6;">🔐 Something I Only Want You To Read 😏</h2>
+    <div id="aloneCheck" style="max-width:420px;margin:30px auto;background:linear-gradient(135deg, rgba(236,72,153,0.15) 0%, rgba(168,85,247,0.15) 100%);padding:30px;border-radius:25px;border:1px solid rgba(236,72,153,0.3);">
+        <p style="font-size:1.1em;margin-bottom:15px;">Before we continue…<br>Are you alone right now? 👀</p>
+        <button onclick="confirmAlone(true)" style="background:linear-gradient(135deg, #a855f7 0%, #ec4899 100%);border:none;padding:10px 20px;border-radius:20px;color:white;margin:5px;cursor:pointer;">Yes 😌</button>
+        <button onclick="confirmAlone(false)" style="background:linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);border:none;padding:10px 20px;border-radius:20px;color:white;margin:5px;cursor:pointer;">Not yet 🙈</button>
+        <p id="aloneMsg" style="margin-top:15px;color:#c4b5fd;"></p>
+    </div>
+
+    <div id="passwordBox" style="display:none;max-width:420px;margin:30px auto;background:linear-gradient(135deg, rgba(236,72,153,0.15) 0%, rgba(168,85,247,0.15) 100%);padding:30px;border-radius:25px;border:1px solid rgba(236,72,153,0.3);">
+        <input id="passwordInput" type="password" placeholder="Enter the secret 🔥" style="padding:12px;width:100%;border-radius:20px;border:1px solid rgba(236,72,153,0.3);text-align:center;font-size:1em;background:#1f0f3d;color:#fff;">
+        <button onclick="unlockSecret()" style="margin-top:15px;padding:10px 25px;border:none;border-radius:25px;background:linear-gradient(135deg, #a855f7 0%, #ec4899 100%);color:white;cursor:pointer;">Unlock 😈</button>
+        <p id="errorText" style="margin-top:15px;color:#f87171;"></p>
+    </div>
+
+    <div id="typingBox">
+        <div id="typedText"></div>
+        <span class="cursor">|</span>
+        <div id="choices">
+            <button onclick="choose('stay')">Stay 😌</button>
+            <button onclick="choose('touch')">Don’t Touch 🙈</button>
+            <button onclick="choose('pull')">Pull Away 👀</button>
+        </div>
+    </div>
+</section>
+
+<!-- Music -->
+<audio id="bgMusic" loop>
+    <source src="https://files.catbox.moe/6w9k0v.mp3" type="audio/mpeg">
+</audio>
+<audio id="heartbeat">
+    <source src="https://files.catbox.moe/8k0h1s.mp3" type="audio/mpeg">
+</audio>
+
+<footer>Made with love, desire, and a little obsession 💘</footer>
+
+<script>
+// Floating Hearts
+setInterval(()=>{
+    let h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML="❤️";
+    h.style.left=Math.random()*100+"vw";
+    h.style.fontSize=(Math.random()*20+10)+"px";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),6000);
+},350);
+
+// Fireworks
+function firework(){
+    let f=document.createElement("div");
+    f.className="firework";
+    f.style.left=Math.random()*100+"vw";
+    f.style.top=Math.random()*60+"vh";
+    f.style.background=`hsl(${Math.random()*360},100%,70%)`;
+    document.body.appendChild(f);
+    setTimeout(()=>f.remove(),1500);
+}
+setInterval(firework,800);
+
+// Cards
+function showAlert(msg){alert(msg);}
+
+// Candle blow
+function blow(){
+    document.getElementById("flame").style.display="none";
+    document.getElementById("finalMessage").style.display="block";
+    candleBlown=true;
+}
+
+// Password & Scenes
+const PASSWORD="abdullahismydaddyinbed";
+const scenes=[
+`Good… 😌  
+
+You stayed.
+I knew you would.
+
+You're right where I want you —
+not trapped,
+just… choosing not to leave.
+
+I step closer.
+Slow.
+Unhurried.
+
+You feel it before anything else —
+that shift,
+that quiet awareness that the moment is tightening.`,
+
+`Interesting choice… 😏  
+
+You tell yourself not to react.
+Not to move.
+Not to reach.
+
+But I can see it —
+the way your body gives you away
+even when you're trying to behave.
+
+I lean in just enough
+to make restraint feel heavier than surrender.
+
+I don't touch you.
+Not yet.
+I let wanting do the work.`,
+
+`Pull away if you want 😌  
+
+I let you think that's an option.
+Just for a second.
+
+Then I close that distance again —
+calm,
+controlled,
+certain.
+
+You're back exactly where you started…
+only now you're more aware of it.
+More affected.
+
+This is the part where you stop pretending
+you're not enjoying this.`,
+
+`Now slow down.  
+
+This part isn't rushed.
+This part is felt.
+
+I stay close —
+close enough to make your breathing change,
+close enough that your imagination
+starts filling in details on its own.
+
+You're aware of how easily I control the pace.
+How natural it feels to let me.
+
+And that's when it clicks —
+you didn't really think I'd let you stop,
+did you? 😈🫦
+
+Happy Birthday, baby.
+Tonight,
+I live in your thoughts 🔥`
+];
+let sceneIndex=0;
+let candleBlown=false;
+
+function confirmAlone(isAlone) {
+    const msg = document.getElementById("aloneMsg");
+    if (isAlone) {
+        msg.innerHTML = "Good 😌 Then let's continue…";
+        document.getElementById("passwordBox").style.display = "block";
+    } else {
+        msg.innerHTML = "I'll wait 😏 Come back when it's just you and me.";
+    }
+}
+
+function unlockSecret() {
+    if(!candleBlown){
+        document.getElementById("errorText").innerHTML = "Not yet 😌 Make a wish first…";
+        return;
+    }
+    const input = document.getElementById("passwordInput").value;
+    if(input === PASSWORD){
+        document.getElementById("errorText").innerHTML = "";
+        startScenes();
+    } else {
+        document.getElementById("errorText").innerHTML = "Slow down… that's not it 😏";
+    }
+}
+
+function startScenes(){
+    document.getElementById("typingBox").style.display="block";
+    fadeInMusic();
+    typeScene(scenes[0],true);
+}
+
+function typeScene(text, showChoices){
+    const target = document.getElementById("typedText");
+    const choices = document.getElementById("choices");
+    const heartbeat = document.getElementById("heartbeat");
+
+    target.innerHTML = "";
+    choices.style.display = "none";
+
+    heartbeat.volume = 0.6;
+    heartbeat.play();
+
+    let i = 0;
+    const interval = setInterval(()=>{
+        target.innerHTML += text.charAt(i);
+        i++;
+        if(i >= text.length){
+            clearInterval(interval);
+            heartbeat.pause();
+            
+            // Show choices only if there are more scenes left
+            if(sceneIndex < scenes.length - 1 && showChoices) {
+                choices.style.display = "block";
+            } else if(sceneIndex === scenes.length - 1) {
+                // Show end button on final scene
+                choices.innerHTML = '<button onclick="endScene()" style="background:linear-gradient(135deg, #ec4899 0%, #f472b6 100%);border:none;padding:12px 28px;border-radius:30px;color:white;font-size:1em;cursor:pointer;box-shadow:0 4px 15px rgba(236,72,153,0.3);">💋 Until next time...</button>';
+                choices.style.display = "block";
+            }
+        }
+    }, 38);
+}
+
+// Updated choose() to handle scene progression
+function choose(){
+    if(sceneIndex < scenes.length - 1){
+        sceneIndex++;
+        document.getElementById("choices").style.display = "none";
+        typeScene(scenes[sceneIndex], sceneIndex < scenes.length - 1);
+    }
+}
+
+function endScene(){
+    document.getElementById("typingBox").style.display = "none";
+    const bgMusic = document.getElementById("bgMusic");
+    bgMusic.pause();
+    
+    // Show final message
+    const finalBox = document.createElement("div");
+    finalBox.style.cssText = "max-width:700px;margin:60px auto;background:linear-gradient(135deg, rgba(236,72,153,0.2) 0%, rgba(168,85,247,0.2) 100%);padding:40px;border-radius:30px;border:1px solid rgba(236,72,153,0.4);animation:fade 1.5s forwards;";
+    finalBox.innerHTML = "<p style='font-size:1.3em;color:#f472b6;'>Happy Birthday to the love of my life 💕<br><br>Thank you for being my everything.<br><br>✨ Forever yours ✨</p>";
+    document.body.appendChild(finalBox);
+}
+
+function fadeInMusic(){
+    const music=document.getElementById("bgMusic");
+    music.volume=0; music.play();
+    let v=0;
+    const fade=setInterval(()=>{v+=0.02; music.volume=Math.min(v,0.5); if(v>=0.5)clearInterval(fade);},200);
+}
+
+</script>
+
+</body>
+</html>
